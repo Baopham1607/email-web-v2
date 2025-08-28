@@ -9,6 +9,7 @@ public class User implements Serializable {
     private String dateOfBirth;
     private String contactMethod;
     private String[] announcements;
+    private String hearUs; // Dòng mới
 
     public User() {
         this.firstName = "";
@@ -17,62 +18,25 @@ public class User implements Serializable {
         this.dateOfBirth = "";
         this.contactMethod = "";
         this.announcements = new String[0];
+        this.hearUs = ""; // Dòng mới
     }
 
-    public User(String firstName, String lastName, String email, String dateOfBirth, String contactMethod, String[] announcements) {
+    public User(String firstName, String lastName, String email, String dateOfBirth, String contactMethod, String[] announcements, String hearUs) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.contactMethod = contactMethod;
         this.announcements = announcements;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+        this.hearUs = hearUs; // Dòng mới
     }
     
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    // Các getters và setters khác
+    public String getHearUs() {
+        return hearUs;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getContactMethod() {
-        return contactMethod;
-    }
-
-    public void setContactMethod(String contactMethod) {
-        this.contactMethod = contactMethod;
-    }
-
-    public String[] getAnnouncements() {
-        return announcements;
-    }
-
-    public void setAnnouncements(String[] announcements) {
-        this.announcements = announcements;
+    public void setHearUs(String hearUs) {
+        this.hearUs = hearUs;
     }
 }

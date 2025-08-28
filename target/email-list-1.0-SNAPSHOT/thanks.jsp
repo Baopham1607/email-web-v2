@@ -17,6 +17,7 @@
             <p><strong>Last Name:</strong> ${user.lastName}</p>
             <p><strong>Email:</strong> ${user.email}</p>
             <p><strong>Date of Birth:</strong> ${user.dateOfBirth}</p>
+            <p><strong>How did you hear about us:</strong> ${user.hearUs}</p>
             <p><strong>Contact Method:</strong> ${user.contactMethod}</p>
             <p><strong>Announcements:</strong><br>
                 <c:choose>

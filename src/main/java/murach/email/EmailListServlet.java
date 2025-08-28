@@ -16,15 +16,15 @@ public class EmailListServlet extends HttpServlet {
 
     request.setCharacterEncoding("UTF-8");
     
-
     String firstName = request.getParameter("firstName");
     String lastName = request.getParameter("lastName");
     String email = request.getParameter("email");
     String dateOfBirth = request.getParameter("dob");
     String contactMethod = request.getParameter("contactMethod");
     String[] announcements = request.getParameterValues("announcements");
+    String hearUs = request.getParameter("hearUs"); // Dòng mới
 
-    User user = new User(firstName, lastName, email, dateOfBirth, contactMethod, announcements);
+    User user = new User(firstName, lastName, email, dateOfBirth, contactMethod, announcements, hearUs); // Dòng đã sửa
 
     request.setAttribute("user", user);
 
@@ -35,6 +35,6 @@ public class EmailListServlet extends HttpServlet {
 protected void doGet(HttpServletRequest request,
                      HttpServletResponse response)
         throws ServletException, IOException {
-    // Khi bấm Return → quay lại form gốc
     response.sendRedirect("index.html");
-}}
+}
+}
