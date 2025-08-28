@@ -13,12 +13,16 @@
         <p class="subtitle">Here is the information you submitted:</p>
 
         <div class="info">
-            <p><strong>First Name:</strong> ${user.firstName}</p>
-            <p><strong>Last Name:</strong> ${user.lastName}</p>
-            <p><strong>Email:</strong> ${user.email}</p>
-            <p><strong>Date of Birth:</strong> ${user.dateOfBirth}</p>
-            <p><strong>How did you hear about us:</strong> ${user.hearUs}</p>
-            <p><strong>Contact Method:</strong> ${user.contactMethod}</p>
+            <% 
+            murach.business.User user = (murach.business.User) request.getAttribute("user");
+            if (user != null) {
+            %>
+            <p><strong>First Name:</strong> <%= user.getFirstName() %></p>
+            <p><strong>Last Name:</strong> <%= user.getLastName() %></p>
+            <p><strong>Email:</strong> <%= user.getEmail() %></p>
+            <p><strong>Date of Birth:</strong> <%= user.getDateOfBirth() %></p>
+            <p><strong>How did you hear about us:</strong> <%= user.getHearUs() %></p>
+            <p><strong>Contact Method:</strong> <%= user.getContactMethod() %></p>
             
             <p><strong>Announcements:</strong><br>
                 <%
@@ -36,6 +40,9 @@
                 }
                 %>
             </p>
+            <% } else { %>
+                <p>No user data found. Please go back and fill out the form.</p>
+            <% } %>
         </div>
 
         <a href="." class="btn return-btn">Return to Home</a>
