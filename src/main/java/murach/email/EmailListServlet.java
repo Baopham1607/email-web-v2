@@ -24,7 +24,8 @@ public class EmailListServlet extends HttpServlet {
     String[] announcements = request.getParameterValues("announcements");
     String hearUs = request.getParameter("hearUs"); // Dòng mới
 
-    User user = new User(firstName, lastName, email, dateOfBirth, contactMethod, announcements, hearUs); // Dòng đã sửa
+    // Sửa dòng này để truyền tham số hearUs vào hàm tạo
+    User user = new User(firstName, lastName, email, dateOfBirth, contactMethod, announcements, hearUs);
 
     request.setAttribute("user", user);
 
@@ -35,6 +36,7 @@ public class EmailListServlet extends HttpServlet {
 protected void doGet(HttpServletRequest request,
                      HttpServletResponse response)
         throws ServletException, IOException {
+    // Khi bấm Return → quay lại form gốc
     response.sendRedirect("index.html");
 }
 }

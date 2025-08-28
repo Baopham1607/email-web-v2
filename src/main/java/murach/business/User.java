@@ -9,8 +9,9 @@ public class User implements Serializable {
     private String dateOfBirth;
     private String contactMethod;
     private String[] announcements;
-    private String hearUs; // Dòng mới
+    private String hearUs; // Thêm trường mới
 
+    // Constructor mặc định (không có tham số)
     public User() {
         this.firstName = "";
         this.lastName = "";
@@ -18,9 +19,10 @@ public class User implements Serializable {
         this.dateOfBirth = "";
         this.contactMethod = "";
         this.announcements = new String[0];
-        this.hearUs = ""; // Dòng mới
+        this.hearUs = ""; // Khởi tạo giá trị mặc định
     }
 
+    // Constructor có tham số
     public User(String firstName, String lastName, String email, String dateOfBirth, String contactMethod, String[] announcements, String hearUs) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,15 +30,28 @@ public class User implements Serializable {
         this.dateOfBirth = dateOfBirth;
         this.contactMethod = contactMethod;
         this.announcements = announcements;
-        this.hearUs = hearUs; // Dòng mới
-    }
-    
-    // Các getters và setters khác
-    public String getHearUs() {
-        return hearUs;
+        this.hearUs = hearUs; // Gán giá trị
     }
 
-    public void setHearUs(String hearUs) {
-        this.hearUs = hearUs;
-    }
+    // Thêm getter và setter cho hearUs
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    
+    public String getDateOfBirth() { return dateOfBirth; }
+    public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+
+    public String getContactMethod() { return contactMethod; }
+    public void setContactMethod(String contactMethod) { this.contactMethod = contactMethod; }
+
+    public String[] getAnnouncements() { return announcements; }
+    public void setAnnouncements(String[] announcements) { this.announcements = announcements; }
+    
+    public String getHearUs() { return hearUs; }
+    public void setHearUs(String hearUs) { this.hearUs = hearUs; }
 }
