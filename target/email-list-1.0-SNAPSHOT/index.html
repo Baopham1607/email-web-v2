@@ -53,5 +53,12 @@
         </form>
     </div>
 </div>
+<script>
+    // Khi tất cả các tài nguyên (bao gồm cả CSS) đã tải xong
+    window.addEventListener('load', function() {
+        // Thêm lớp 'loaded' vào thẻ body
+        document.body.classList.add('loaded');
+    });
+</script>
 </body>
 </html>
