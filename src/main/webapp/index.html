@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Murach's Survey</title>
-    <link rel="stylesheet" href="styles/Main.css" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles/Main.css">
 </head>
-<body>
-    <img src="styles/image/murachlogo.jpg" alt="Murach Logo" width="100">
+<body class="index-page">
+<div class="container">
+    <div class="card">
+        <img src="styles/image/murachlogo.jpg" alt="Murach Logo" class="logo">
 
-    <h1>Survey</h1>
-    <p>If you have a moment, we'd appreciate it if you would fill out this survey.</p>
+        <h1>Customer Survey</h1>
+        <p class="subtitle">We'd love your feedback! Please fill out this short survey.</p>
 
-    <h2>Your information:</h2>
-    <form action="survey" method="post">
-        <label>First Name:</label>
-        <input type="text" name="firstName" required><br>
+        <form action="survey" method="post" class="form">
+            <input type="hidden" name="action" value="add">
 
-        <label>Last Name:</label>
-        <input type="text" name="lastName" required><br>
+            <label>First Name</label>
+            <input type="text" name="firstName" required>
 
-        <label>Email:</label>
-        <input type="email" name="email" required><br>
+            <label>Last Name</label>
+            <input type="text" name="lastName" required>
 
-        <label>Date of Birth:</label>
-        <input type="date" name="dob"><br>
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-        <h2>How did you hear about us?</h2>
-        <input type="radio" name="hearUs" value="Search engine" checked> Search engine
-        <input type="radio" name="hearUs" value="Word of mouth"> Word of mouth
-        <input type="radio" name="hearUs" value="Social Media"> Social Media
-        <input type="radio" name="hearUs" value="Other"> Other
+            <label>Date of Birth</label>
+            <input type="date" name="dob">
 
-        <h2>Would you like to receive announcements about new CDs and special offers?</h2>
-        <input type="checkbox" name="announcements" value="yes_cds"> YES, I'd like that.<br>
-        <input type="checkbox" name="announcements" value="yes_email"> YES, please send me email announcements.<br>
+            <label>How did you hear about us?</label>
+            <div class="options">
+                <label><input type="radio" name="hearUs" value="Search engine" checked> Search engine</label>
+                <label><input type="radio" name="hearUs" value="Word of mouth"> Word of mouth</label>
+                <label><input type="radio" name="hearUs" value="Social Media"> Social Media</label>
+                <label><input type="radio" name="hearUs" value="Other"> Other</label>
+            </div>
 
-        <label>Please contact me by:</label>
-        <select name="contactMethod">
-            <option>Email or postal mail</option>
-            <option>Email only</option>
-            <option>Postal mail only</option>
-        </select><br>
+            <label>Would you like to receive announcements?</label>
+            <div class="options">
+                <label><input type="checkbox" name="announcements" value="yes_cds"> YES, new CDs & offers</label>
+                <label><input type="checkbox" name="announcements" value="yes_email"> YES, email announcements</label>
+            </div>
 
-        <input type="submit" value="Submit">
-    </form>
+            <label>Preferred contact method</label>
+            <select name="contactMethod">
+                <option>Email or postal mail</option>
+                <option>Email only</option>
+                <option>Postal mail only</option>
+            </select>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

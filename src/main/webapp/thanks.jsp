@@ -1,48 +1,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Survey - Thanks</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/Main.css">
 </head>
+<body class="thanks-page">
+<div class="container">
+    <div class="card">
+        <h1>🎉 Thank You!</h1>
+        <p class="subtitle">Here is the information you submitted:</p>
 
-<body>
-<h1>Thanks for your survey</h1>
+        <div class="info">
+            <p><strong>First Name:</strong> ${user.firstName}</p>
+            <p><strong>Last Name:</strong> ${user.lastName}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Date of Birth:</strong> ${user.dateOfBirth}</p>
+            <p><strong>Contact Method:</strong> ${user.contactMethod}</p>
+            <p><strong>Announcements:</strong><br>
+                <c:choose>
+                    <c:when test="${user.announcements != null && user.announcements.length > 0}">
+                        <c:forEach var="announcement" items="${user.announcements}">
+                            - ${announcement}<br>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>No announcements selected.</c:otherwise>
+                </c:choose>
+            </p>
+        </div>
 
-<p>Here is the information that you entered:</p>
-
-<label>First Name:</label>
-<span>${user.firstName}</span><br>
-<label>Last Name:</label>
-<span>${user.lastName}</span><br>
-<label>Email:</label>
-<span>${user.email}</span><br>
-<label>Date of Birth:</label>
-<span>${user.dateOfBirth}</span><br>
-<label>Contact Method:</label>
-<span>${user.contactMethod}</span><br>
-
-<label>Announcements:</label>
-<span>
-    <c:choose>
-        <c:when test="${user.announcements != null && user.announcements.length > 0}">
-            <c:forEach var="announcement" items="${user.announcements}">
-                ${announcement}<br>
-            </c:forEach>
-        </c:when>
-        <c:otherwise>
-            No announcements selected.
-        </c:otherwise>
-    </c:choose>
-</span>
-
-<p>To enter another survey, click on the Back
-    button in your browser or the Return button below.</p>
-
-<form action="survey" method="get">
-    <input type="hidden" name="action" value="join">
-    <input type="submit" value="Return">
-</form>
+        <a href="index.html" class="btn return">Return</a>
+    </div>
+</div>
 </body>
 </html>

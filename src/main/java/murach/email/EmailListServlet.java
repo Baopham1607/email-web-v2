@@ -15,6 +15,7 @@ public class EmailListServlet extends HttpServlet {
         throws ServletException, IOException {
 
     request.setCharacterEncoding("UTF-8");
+    
 
     String firstName = request.getParameter("firstName");
     String lastName = request.getParameter("lastName");
@@ -30,4 +31,10 @@ public class EmailListServlet extends HttpServlet {
     getServletContext()
             .getRequestDispatcher("/thanks.jsp")
             .forward(request, response);
+}
+protected void doGet(HttpServletRequest request,
+                     HttpServletResponse response)
+        throws ServletException, IOException {
+    // Khi bấm Return → quay lại form gốc
+    response.sendRedirect("index.html");
 }}
