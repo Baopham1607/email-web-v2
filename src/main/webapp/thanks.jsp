@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,19 +19,26 @@
             <p><strong>Date of Birth:</strong> ${user.dateOfBirth}</p>
             <p><strong>How did you hear about us:</strong> ${user.hearUs}</p>
             <p><strong>Contact Method:</strong> ${user.contactMethod}</p>
+            
             <p><strong>Announcements:</strong><br>
-                <c:choose>
-                    <c:when test="${user.announcements != null && user.announcements.length > 0}">
-                        <c:forEach var="announcement" items="${user.announcements}">
-                            - ${announcement}<br>
-                        </c:forEach>
-                    </c:when>
-                    <c:otherwise>No announcements selected.</c:otherwise>
-                </c:choose>
+                <%
+                String[] announcements = user.getAnnouncements();
+                if (announcements != null && announcements.length > 0) {
+                    for (String announcement : announcements) {
+                %>
+                        - <%= announcement %><br>
+                <%
+                    }
+                } else {
+                %>
+                    No announcements selected.
+                <%
+                }
+                %>
             </p>
         </div>
 
-        <a href="index.html" class="btn return">Return</a>
+        <a href="." class="btn return-btn">Return to Home</a>
     </div>
 </div>
 </body>
